@@ -2,27 +2,50 @@ class CoursePage {
   // Element Section
   pageElements = {
     loginSuccessfulMsg: () => cy.get("button").contains('Login Successful'),
+    
     coursePageTitle: () => cy.contains('List of Courses'),
+
     addCourseBtn: () => cy.get("button").contains('Add Course'),
+
     accountName: () => cy.get("button").contains("Ayobami"),
+
     logOut: () => cy.get("button").contains("LOG OUT"),
 
+
+    
+
     emailAddressInputField: () => cy.get('[data-testid="EmailAddress"]'),
+
     passwordInputField: () => cy.get('[data-testid="Password"]'),
+
     loginBtn: () => cy.get("button").contains("Login"),
+
     loginButton: () => cy.get('[data-testid="LoginButton"]'),
+
     successfulLoginMsg: () => cy.contains('Login Successful'),
+
     verifyErrorMessageExists: () => cy.contains('Invalid Login Credential'),
+
     listOfCourse: () => cy.get("button").contains("List of Courses"),
 
     courseTitle: () => cy.get('[data-testid="Title*"]'),
+
     courseDescription: () => cy.get('[data-testid="Description*"]'),
+
     courseCategory: () => cy.get('#demo-simple-select'),
+
     courseCategoryList: () => cy.get('#menu- > .MuiPaper-root > .MuiList-root'),
+
     courseUrl: () => cy.get('[data-testid="CourseURL*(mustbeyoutube)"]'),
+
     courseLocationList: () => cy.get('.MuiFormGroup-root'),
+
     courseAddBtn: () => cy.get('[data-testid="+ ADD COURSE"]'),
+
     accountName: () => cy.get("button").contains("Ayobami"),
+    
+    verifySuccessMessage: () => cy.contains('Course created successfully'),
+
     logOutBtn: () => cy.get("button").contains("LOG OUT"),
   };
 
@@ -65,10 +88,7 @@ class CoursePage {
   clickAddButton() {
     this.pageElements.courseAddBtn().click();
   }
- //Verification Section
-  verifySuccessMessage() {
-    cy.get('.success-message').should('be.visible').and('contain', 'Course added successfully');
-  }
+
 
   verifyRedirectToOnlineCourses() {
     cy.url().should('include', '/online-courses');
@@ -77,6 +97,13 @@ class CoursePage {
   clickOnCourseCard() {
     cy.get('.course-card').first().click();
   }
+
+userClicksAddCourseBtnAfterInputtingDetails(){
+  cy.get('.css-tzsjye > .MuiButton-root').first().click();
 }
 
+verifySuccessMessage() {
+  this.pageElements.verifySuccessMessage().should('be.visible');
+}
+}
 export const coursePage = new CoursePage();

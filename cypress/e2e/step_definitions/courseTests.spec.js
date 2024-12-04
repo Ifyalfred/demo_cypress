@@ -36,7 +36,7 @@ Given ('A user is present on the Quales Edu library course page', () =>
               })
           //The Then  syntax specifies the expected outcome of the test
     Then ('A successfully message should be visible and user should be redirected to the online course page', () => { 
-        coursePage.verifySuccessfulOnlineMsg()
+        coursePage.verifySuccessMessage()
           })
         
     //When ('The user select add a course button ', () => {
