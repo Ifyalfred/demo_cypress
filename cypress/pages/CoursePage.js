@@ -42,7 +42,6 @@ class CoursePage {
 
     courseAddBtn: () => cy.get('[data-testid="+ ADD COURSE"]'),
 
-    accountName: () => cy.get("button").contains("Ayobami"),
     
     verifySuccessMessage: () => cy.contains('Course created successfully'),
 
