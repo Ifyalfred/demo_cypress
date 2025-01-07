@@ -9,10 +9,22 @@ class LoginPage {
     logOutBtn: () => cy.get("button").contains("LOG OUT"),
   };
 
-  //Login with correct credentials
+  // Login with correct credentials
   userTypesCorrectEmailAddressAndPassword() {
-    this.pageElements.emailAddressInputField().type(Cypress.env("USERNAME"));
-    this.pageElements.passwordInputField().type(Cypress.env("PASSWORD"));
+    const username = Cypress.env("USERNAME");
+    const password = Cypress.env("PASSWORD");
+
+    if (!username || !password) {
+      throw new Error("USERNAME or PASSWORD environment variable is not defined.");
+    }
+
+    cy.log("Using username: ", username);
+    this.pageElements.emailAddressInputField()
+      .should('be.visible')
+      .type(username);
+    this.pageElements.passwordInputField()
+      .should('be.visible')
+      .type(password);
     this.pageElements.loginBtn().click();
   }
 
@@ -21,21 +33,33 @@ class LoginPage {
     this.pageElements.successfulLoginMsg().should('be.visible');
   }
 
-    // Function to enter invalid credentials (.replace with your logic)
+  // Function to enter invalid credentials
   userTypesIncorrectEmailAddressAndPassword() {
-    this.pageElements.emailAddressInputField().type(Cypress.env("WRONGUSERNAME")); // Replace with logic for invalid username
-    this.pageElements.passwordInputField().type(Cypress.env("WRONGPASSWORD")); // Replace with logic for invalid password
-    this.pageElements.loginBtn().click(); // Click login button
+    const wrongUsername = Cypress.env("WRONGUSERNAME");
+    const wrongPassword = Cypress.env("WRONGPASSWORD");
+
+    if (!wrongUsername || !wrongPassword) {
+      throw new Error("WRONGUSERNAME or WRONGPASSWORD environment variable is not defined.");
+    }
+
+    cy.log("Using wrong username: ", wrongUsername);
+    this.pageElements.emailAddressInputField()
+      .should('be.visible')
+      .type(wrongUsername);
+    this.pageElements.passwordInputField()
+      .should('be.visible')
+      .type(wrongPassword);
+    this.pageElements.loginBtn().click();
   }
 
   // Verify unsuccessful login
   verifyErrorMessageExists() {
     this.pageElements.verifyErrorMessageExists().should('be.visible');
-  
   }
-  //Click on the logout button
+
+  // Click on the logout button
   clickOnLogOutButton() {
-    this.pageElements.logOutBtn().click();
+    this.pageElements.logOutBtn().should('be.visible').click();
   }
 }
 

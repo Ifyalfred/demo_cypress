@@ -10,8 +10,8 @@ Given ('A user is present on the Quales Edu library course page', () =>
         {   //Use the visit method from the LoginPage
             cy.visit('/login');
             loginPage.userTypesCorrectEmailAddressAndPassword(),
-
-            //Use the login method from the LoginPage
+          
+            //Use the login method from the LoginPage 
             //loginPage.login('ay@mail.com', 'pass1234');
             //Use the clickOnAddCourseButton method from the HomePage
             homePage. verifySuccessfulLogin(),
