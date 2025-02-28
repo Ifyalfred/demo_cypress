@@ -25,33 +25,29 @@ Given ('A user is present on the Quales Edu library course page', () =>
 
           //Scenario: Successfully add a course online to the quales edu web app
           //The When synatax specifies the actions the user performs
-    When ('The user clicks on adds a course button', () => {
-          coursePage.userClicksAddCourseBtn()
-          })
+    When ('The user clicks on adds a course button', () => 
+        {coursePage.userClicksAddCourseBtn() })
     When ('The user inputs course details and selects online location', () => { 
-        coursePage.userInputCourseDetailsAndSelectOnlineLocation()
-          })
+          coursePage.userInputCourseDetailsAndSelectOnlineLocation()})
     When ('The user clicks the + add button after inputting details', () => { 
-            coursePage.userClicksAddCourseBtnAfterInputtingDetails()
-              })
+            coursePage.userClicksAddCourseBtnAfterInputtingDetails() })
           //The Then  syntax specifies the expected outcome of the test
-    Then ('A successfully message should be visible and user should be redirected to the online course page', () => { 
-        coursePage.verifySuccessMessage()
-          })
-        
-    //When ('The user select add a course button ', () => {
-      //  coursePage.userSelectAddCourseBtn()
-        //  })
-    //When ('The user inputs course details and select offline location', () => {
-      //  coursePage.userInputCourseDetailsAndSelectOfflineLocation()
-        //  })
-          //The Then  syntax specifies the expected outcome of the test
-    //When ('The user clicks the add course button')  
-     //   coursePage.userClicksAddCourseBtn()   
-    //Then ('A successfully message should be visible and user should be directed to the offline course page', () => {
-      //  coursePage.verifySuccessfulOfflineMsg()
-        //  })
+    Then ('A successfully message should be visible and user should be redirected to the online course page', () => {
+            coursePage.verifySuccessMessage()})
 
+
+    When ('The user select add a course button ', () => {
+      coursePage.userClicksAddCourseBtn()})
+    When ('The user inputs course details and select offline location', () => {
+      coursePage.userInputCourseDetailsAndSelectOfflineLocation()  
+        })
+          //The Then  syntax specifies the expected outcome of the test
+    When ('The user clicks the + add button after inputting details', () => { 
+      coursePage.userClicksAddCourseBtnAfterInputtingDetails()})
+          //The Then  syntax specifies the expected outcome of the test 
+    Then ('A successfully message should be visible and user should be directed to the offline course page', () => {
+        coursePage.verifySuccessfulOfflineMsg()})
+    
           //Scenario: Successfully edit a course on the quales edu web app
 //    When ('The user clicks on a course and its directed to the specific course page', () => {
      //   coursePage.UserClicksOnSpecificCourse()

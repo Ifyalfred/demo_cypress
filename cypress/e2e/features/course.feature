@@ -19,19 +19,19 @@ The purpose of this feature is to verify that the course management functionalit
      #Scenario: Successfully add a course online to the quales edu web app
      #The When synatax specifies the actions the user performs
      #When The user clicks on adds a course button
-     #When The user clicks the + add button after inputting details
+     
      #The Then  syntax specifies the expected outcome of the test
      #Then A successfully message should be visible and user should be directed to the online course page
 
           #The given syntax is a pre-requisite
-     #Given A user is present on the Quales Edu library course page
-          #Scenario: Successfully add a course offline to the quales edu web app
+     Given A user is present on the Quales Edu library course page
+          Scenario: Successfully input a course offline to the quales edu web app
           #When The When syntax specifies the actions the user performs
-          #When The user clicks on adds a course button 
-          #When The user inputs course details and selects offline location
-          #When The user clicks the add course button
-          #When The Then syntax specifies the expected outcome of the test
-          #Then A successfully message should be visible and user should be redirected to the offline course page
+          When The user selects on adds a course button 
+          When The user add course details and selects offline location
+          When The user selects the add course button after inputting details
+          #The Then syntax specifies the expected outcome of the test
+          Then A successfully message should be visible and user should be redirected to the offline course page
 
           
      #Given A course exists in the user's course list

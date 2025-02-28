@@ -20,3 +20,4 @@ Given A user is at the quales edu portal login page
     When The User enters incorrect credentials and click on the login button
     #The Then  syntax specifies the expected outcome of the test
     Then The user should see an error message indicating invalid credentials
+
