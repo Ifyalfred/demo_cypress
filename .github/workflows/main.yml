@@ -1,21 +1,22 @@
 on: [push, pull_request]
 jobs:
-  test:
+  test:  # Ensure this job name is correct for your workflow
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Updated version
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "16"  # Ensure your project supports Node.js 16
 
       - name: Install Dependencies
         run: npm ci
 
       - name: Run Cypress Tests
         run: npx cypress run
+        # Uncomment and update the environment variables if needed
         # env:
         #   CYPRESS_password: ${{ secrets.TEST_PASSWORD }}
         #   CYPRESS_incorrectPassword: ${{ secrets.INCORRECT_TEST_PASSWORD }}
